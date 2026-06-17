@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GMAW Quality Monitoring Dashboard</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<style>
+body{font-family:Arial,sans-serif;margin:0;background:#f4f6f9}
+header{background:linear-gradient(135deg,#1e3c72,#2a5298);color:#fff;padding:25px;text-align:center}
+.container{max-width:1200px;margin:auto;padding:20px}
+.section{background:#fff;padding:20px;margin-bottom:20px;border-radius:10px;box-shadow:0 2px 8px rgba(0,0,0,.1)}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}
+.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:15px}
+.card{text-align:center;padding:15px;border:1px solid #ddd;border-radius:10px}
+img{max-width:100%}
+table{width:100%;border-collapse:collapse}
+th,td{border:1px solid #ccc;padding:8px;text-align:center}
+canvas{max-height:350px}
+@media(max-width:768px){.grid3,.grid4{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<header>
+<h1>GMAW Real-Time Quality Monitoring System</h1>
+<p>Course: INSERT COURSE NAME</p>
+<p>Project Supervisor: Ts. Mohammad Khalid Bin Wahid</p>
+</header>
+
+<div class="container">
+
+<div class="section">
+<h2>Quality Assurance Engineering Team</h2>
+<div class="grid3">
+<div class="card"><img src="elya.jpg"><h3>Nur Elya Atiqah Binti Saharil</h3><p>B142410532</p></div>
+<div class="card"><img src="nad.jpg"><h3>Nadhirah Wahidah Binti Arman</h3><p>B142410505</p></div>
+<div class="card"><img src="wan.jpg"><h3>Mohammad Ridzuan Shah Bin Suhaimi</h3><p>B142410514</p></div>
+</div>
+</div>
+
+<div class="section">
+<h2>Industrial Diagnostic Equipment and Sensor</h2>
+<div class="grid4">
+<div class="card"><img src="arc-analyzer.jpg"><p>Arc Analyzer</p></div>
+<div class="card"><img src="lvdt.jpg"><p>LVDT Sensor</p></div>
+<div class="card"><img src="daq.jpg"><p>DAQ System</p></div>
+<div class="card"><img src="gmaw.jpg"><p>GMAW Setup</p></div>
+</div>
+</div>
+
+<div class="section">
+<h2>Data Source Panel</h2>
+<p>Table 1: Electrical Welding Parameters (30 Samples)</p>
+<p>Table 2: Temperature Readings (25 Samples)</p>
+<p>Table 3: Arc Analyzer vs LVDT Comparison</p>
+</div>
+
+<div class="section">
+<h2>Key Statistics</h2>
+<div class="grid4">
+<div class="card"><h3>199.9 A</h3><p>Average Current</p></div>
+<div class="card"><h3>25.4 V</h3><p>Average Voltage</p></div>
+<div class="card"><h3>5102 W</h3><p>Average Power</p></div>
+<div class="card"><h3>1.91 kJ/mm</h3><p>Average Heat Input</p></div>
+</div>
+</div>
+
+<div class="section">
+<h2>Table 1 Display</h2>
+<p>Paste your 30-sample dataset here.</p>
+</div>
+
+<div class="section">
+<h2>Scatter Diagrams</h2>
+<canvas id="c1"></canvas>
+<canvas id="c2"></canvas>
+<canvas id="c3"></canvas>
+</div>
+
+<div class="section">
+<h2>Table 2 Display</h2>
+<p>Insert 25 samples of temperature readings (T1-T6).</p>
+</div>
+
+<div class="section">
+<h2>Control Charts</h2>
+<canvas id="xbar"></canvas>
+<canvas id="rchart"></canvas>
+</div>
+
+<div class="section">
+<h2>Comparison Table</h2>
+<table>
+<tr><th>Feature</th><th>Arc Analyzer</th><th>LVDT</th></tr>
+<tr><td>Function</td><td>Electrical Parameters</td><td>Displacement Measurement</td></tr>
+<tr><td>Output</td><td>Current, Voltage, Power</td><td>Linear Displacement</td></tr>
+<tr><td>Application</td><td>Welding Monitoring</td><td>Deformation Analysis</td></tr>
+</table>
+</div>
+
+<div class="section">
+<h2>Conclusion</h2>
+<p>Summarize findings and recommendations here.</p>
+</div>
+
+<div class="section">
+<h2>References (APA)</h2>
+<p>American Welding Society. (2020). Welding Handbook.</p>
+</div>
+
+</div>
+
+<script>
+new Chart(document.getElementById('c1'),{type:'scatter',data:{datasets:[{label:'Current vs Voltage',data:[{x:185,y:24.8},{x:210,y:26.1}]}]}});
+new Chart(document.getElementById('c2'),{type:'scatter',data:{datasets:[{label:'Current vs Power',data:[{x:185,y:4592},{x:210,y:5491}]}]}});
+new Chart(document.getElementById('c3'),{type:'scatter',data:{datasets:[{label:'Voltage vs Heat Input',data:[{x:24.8,y:1.72},{x:26.1,y:2.05}]}]}});
+new Chart(document.getElementById('xbar'),{type:'line',data:{labels:['1','2','3'],datasets:[{label:'X-Bar',data:[50,52,51]}]}});
+new Chart(document.getElementById('rchart'),{type:'line',data:{labels:['1','2','3'],datasets:[{label:'R Chart',data:[4,3,5]}]}});
+</script>
+
+</body>
+</html>
